@@ -3,7 +3,7 @@
 
 ## Архитектура проекта
 - **Стек:** Spring Boot 3, Spring Data JPA, Maven.
-- **СУБД:** H2, PostgreSQL
+- **СУБД:** H2
 - **Основные слои:** 
   - Controller (endpoints)
   - Repository (методы для получения данных)
