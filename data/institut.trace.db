@@ -1,0 +1,6 @@
+2026-11-09 05:40:29.674951+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "OWNERS" not found (this database is empty); SQL statement:
+select o1_0.id,o1_0.address_id,o1_0.name,o1_0.patronymic,o1_0.phone,o1_0.surname from owners o1_0 [42104-240]
+2026-11-09 05:40:31.585061+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "OWNERS" not found (this database is empty); SQL statement:
+select o1_0.id,o1_0.address_id,o1_0.name,o1_0.patronymic,o1_0.phone,o1_0.surname from owners o1_0 [42104-240]

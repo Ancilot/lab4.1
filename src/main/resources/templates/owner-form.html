@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление владельца</title>
+</head>
+<body>
+
+<h1>Добавление нового владельца</h1>
+
+<form th:action="@{/owners/new}"
+      th:object="${ownerDto}"
+      method="post">
+
+    <h3>Данные владельца</h3>
+
+    <p>Фамилия:
+        <input type="text" th:field="*{surname}">
+        <span th:errors="*{surname}"></span>
+    </p>
+
+    <p>Имя:
+        <input type="text" th:field="*{name}">
+        <span th:errors="*{name}"></span>
+    </p>
+
+    <p>Отчество:
+        <input type="text" th:field="*{patronymic}">
+        <span th:errors="*{patronymic}"></span>
+    </p>
+
+    <p>Телефон:
+        <input type="text" th:field="*{phone}">
+        <span th:errors="*{phone}"></span>
+    </p>
+
+    <h3>Домашний адрес</h3>
+
+    <p>Почтовый индекс:
+        <input type="text" th:field="*{postalCode}">
+        <span th:errors="*{postalCode}"></span>
+    </p>
+
+    <p>Страна:
+        <input type="text" th:field="*{country}">
+        <span th:errors="*{country}"></span>
+    </p>
+
+    <p>Область:
+        <input type="text" th:field="*{region}">
+        <span th:errors="*{region}"></span>
+    </p>
+
+    <p>Район:
+        <input type="text" th:field="*{district}">
+        <span th:errors="*{district}"></span>
+    </p>
+
+    <p>Город:
+        <input type="text" th:field="*{city}">
+        <span th:errors="*{city}"></span>
+    </p>
+
+    <p>Улица:
+        <input type="text" th:field="*{street}">
+        <span th:errors="*{street}"></span>
+    </p>
+
+    <p>Дом:
+        <input type="text" th:field="*{house}">
+        <span th:errors="*{house}"></span>
+    </p>
+
+    <p>Квартира:
+        <input type="text" th:field="*{apartment}">
+    </p>
+
+    <button type="submit">Сохранить владельца</button>
+
+</form>
+
+<br>
+
+<a href="/owners">Вернуться к списку</a>
+
+</body>
+</html>

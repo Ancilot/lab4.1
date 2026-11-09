@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление автомобиля</title>
+</head>
+<body>
+
+<h1>Добавление автомобиля</h1>
+
+<form th:action="@{/cars/new}"
+      th:object="${carDto}"
+      method="post">
+
+    <p>Марка автомобиля:
+        <input type="text" th:field="*{brand}">
+        <span th:errors="*{brand}"></span>
+    </p>
+
+    <p>Номер автомобиля:
+        <input type="text" th:field="*{plateNumber}">
+        <span th:errors="*{plateNumber}"></span>
+    </p>
+
+    <p>Номер техпаспорта:
+        <input type="text" th:field="*{passportNumber}">
+        <span th:errors="*{passportNumber}"></span>
+    </p>
+
+    <p>Владелец:</p>
+
+    <select th:field="*{ownerId}">
+        <option value="">Выберите владельца</option>
+
+        <option th:each="owner : ${owners}"
+                th:value="${owner.id}"
+                th:text="${owner.surname + ' ' + owner.name}">
+        </option>
+    </select>
+
+    <span th:errors="*{ownerId}"></span>
+
+    <br><br>
+
+    <button type="submit">Сохранить автомобиль</button>
+
+</form>
+
+<br>
+
+<a href="/cars">Вернуться к автомобилям</a>
+
+</body>
+</html>

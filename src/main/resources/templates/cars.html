@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Автомобили</title>
+</head>
+<body>
+
+<h1>Список автомобилей</h1>
+
+<a href="/cars/new">Добавить автомобиль</a>
+<br><br>
+
+<a href="/owners">Перейти к владельцам</a>
+
+<h2>Поиск автомобилей</h2>
+
+<form th:action="@{/cars/search}"
+      th:object="${searchDto}"
+      method="get">
+
+    <p>Марка:
+        <input type="text" th:field="*{brand}">
+    </p>
+
+    <p>Номер автомобиля:
+        <input type="text" th:field="*{plateNumber}">
+    </p>
+
+    <p>Фамилия владельца:
+        <input type="text" th:field="*{surname}">
+    </p>
+
+    <p>Город:
+        <input type="text" th:field="*{city}">
+    </p>
+
+    <button type="submit">Найти</button>
+
+    <a href="/cars">Сбросить поиск</a>
+
+</form>
+
+<h2>Результаты</h2>
+
+<table border="1" cellpadding="8">
+
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Марка</th>
+        <th>Номер автомобиля</th>
+        <th>Номер техпаспорта</th>
+        <th>Владелец</th>
+        <th>Телефон</th>
+        <th>Город</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <tr th:each="car : ${cars}">
+
+        <td th:text="${car.id}"></td>
+
+        <td th:text="${car.brand}"></td>
+
+        <td th:text="${car.plateNumber}"></td>
+
+        <td th:text="${car.passportNumber}"></td>
+
+        <td th:text="${car.owner.surname + ' ' +
+                       car.owner.name}"></td>
+
+        <td th:text="${car.owner.phone}"></td>
+
+        <td th:text="${car.owner.address.city}"></td>
+
+    </tr>
+
+    <tr th:if="${#lists.isEmpty(cars)}">
+        <td colspan="7">Автомобили не найдены</td>
+    </tr>
+
+    </tbody>
+
+</table>
+
+</body>
+</html>

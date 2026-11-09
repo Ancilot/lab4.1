@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Владельцы автомобилей</title>
+</head>
+<body>
+
+<h1>Список владельцев автомобилей</h1>
+
+<a href="/owners/new">Добавить владельца</a>
+<br><br>
+
+<a href="/cars">Перейти к автомобилям</a>
+
+<table border="1" cellpadding="8">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Фамилия</th>
+        <th>Имя</th>
+        <th>Отчество</th>
+        <th>Телефон</th>
+        <th>Город</th>
+        <th>Улица</th>
+        <th>Количество автомобилей</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="owner : ${owners}">
+        <td th:text="${owner.id}"></td>
+        <td th:text="${owner.surname}"></td>
+        <td th:text="${owner.name}"></td>
+        <td th:text="${owner.patronymic}"></td>
+        <td th:text="${owner.phone}"></td>
+        <td th:text="${owner.address.city}"></td>
+        <td th:text="${owner.address.street}"></td>
+        <td th:text="${owner.cars.size()}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
