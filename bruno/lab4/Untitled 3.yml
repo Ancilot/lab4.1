@@ -1,0 +1,33 @@
+info:
+  name: Untitled 3
+  type: http
+  seq: 5
+
+http:
+  method: PUT
+  url: http://localhost:8080/api/owners/2
+  body:
+    type: json
+    data: |-
+      {
+        "surname": "Иванов",
+        "name": "Сергей",
+        "patronymic": "Викторович",
+        "phone": "+79991112233",
+        "postalCode": "654123",
+        "country": "Россия",
+        "region": "Московская область",
+        "district": "Московский район",
+        "city": "Москва",
+        "street": "Пушкина",
+        "house": "11",
+        "apartment": "10"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

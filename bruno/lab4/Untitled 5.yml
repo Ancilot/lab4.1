@@ -1,0 +1,16 @@
+info:
+  name: Untitled 5
+  type: http
+  seq: 7
+
+http:
+  method: PUT
+  url: http://localhost:8080/api/cars/4/owner/2
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

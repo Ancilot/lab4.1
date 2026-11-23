@@ -1,0 +1,25 @@
+info:
+  name: Untitled 6
+  type: http
+  seq: 8
+
+http:
+  method: POST
+  url: http://localhost:8080/api/cars
+  body:
+    type: json
+    data: |-
+      {
+        "brand": "Toyota Camry",
+        "plateNumber": "А123ВС777",
+        "passportNumber": "1234567890",
+        "ownerId": 2
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
