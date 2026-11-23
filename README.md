@@ -59,6 +59,9 @@
  ### Страница входа
   ![Страница входа](Screenshots/login.png)
   
+  ### Ошибка входа
+  ![Ошибка входа](Screenshots/eror.png)
+  
   ### Вход пользователя с ролью admin
   ![Вход пользователя с ролью admin](Screenshots/admin.png)
   
