@@ -1,15 +1,29 @@
 
 <!DOCTYPE html>
-<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<html lang="ru"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Владельцы автомобилей</title>
 </head>
 <body>
 
+<div sec:authorize="isAuthenticated()">
+    Авторизован как <b sec:authentication="name"></b>
+    (<span sec:authentication="principal.authorities"></span>)
+
+    <form th:action="@{/logout}" method="post" style="display:inline">
+        <button type="submit">Выйти</button>
+    </form>
+</div>
+
+<div sec:authorize="!isAuthenticated()">
+    <a th:href="@{/login}">Войти</a>
+</div>
 <h1>Список владельцев автомобилей</h1>
 
-<a href="/owners/new">Добавить владельца</a>
+<a sec:authorize="hasRole('ADMIN')" th:href="@{/owners/new}">Добавить владельца</a>
 <br><br>
 
 <a href="/cars">Перейти к автомобилям</a>

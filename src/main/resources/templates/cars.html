@@ -1,6 +1,8 @@
 
 <!DOCTYPE html>
-<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<html lang="ru"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Автомобили</title>
@@ -9,7 +11,7 @@
 
 <h1>Список автомобилей</h1>
 
-<a href="/cars/new">Добавить автомобиль</a>
+<a sec:authorize="hasRole('ADMIN')" th:href="@{/cars/new}">Добавить автомобиль</a>
 <br><br>
 
 <a href="/owners">Перейти к владельцам</a>

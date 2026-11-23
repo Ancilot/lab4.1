@@ -24,6 +24,7 @@ import java.util.List;
 @Controller
 public class MainController {
 
+
     private final OwnerRepository ownerRepository;
     private final CarRepository carRepository;
 
@@ -36,6 +37,10 @@ public class MainController {
     }
 
 
+    @GetMapping("/login")
+    public String loginPage() {
+        return "login";
+    }
     // Вывод всех владельцев
     @GetMapping("/owners")
     public String showOwners(Model model) {
