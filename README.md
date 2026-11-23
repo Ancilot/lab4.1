@@ -45,14 +45,14 @@
 ## Алгоритм работы
 - Добавление зависимости spring-boot-starter-security — после запуска все страницы защищены, неавторизованных перенаправляет на /login.
 - Класс SecurityConfig (@Configuration, @EnableWebSecurity) задаёт цепочку фильтров:
-  - только для ADMIN: /owners/new, /cars/new, /owners/delete/**, /cars/update/** и т.п.;
+  - только для ADMIN: /owners/new, /cars/new, /cars/update/**, /owners/update/**;
   - всё остальное — только после входа;
   - настройки formLogin (своя страница /login, успех → /owners) и logout.
 - Пароли шифруются BCryptPasswordEncoder (бин PasswordEncoder); хеши для заполнения БД генерирует утилита PasswordGen.
 - Пользователь в БД: сущность User (@Entity) реализует UserDetails, роль хранится в enum Role implements GrantedAuthority (ROLE_USER, ROLE_ADMIN).
 - Загрузка пользователя: UserService implements UserDetailsService через UserRepository.findByUsername(...) достаёт User из БД и отдаёт Spring Security; если не найден — UsernameNotFoundException.
 - Своя страница входа login.html — POST-форма на /login с полями username/password, вывод сообщений ?error и ?logout.
-- Проверка: под user доступен только просмотр, под admin — ещё и создание/удаление/редактирование; без входа — редирект на /login, при недостатке прав — 403.
+- Проверка: под user доступен только просмотр, под admin — создание/редактирование; без входа — редирект на /login, при недостатке прав — 403.
 
 ## Скриншоты результатов тестирования
 
